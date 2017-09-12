@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.596757852077001" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Pane layoutX="-3.0" prefHeight="324.0" prefWidth="593.0">
+               <children>
+                  <ListView fx:id="menulist" layoutX="35.0" layoutY="44.0" onMousePressed="#showFoods" prefHeight="245.0" prefWidth="231.0" />
+                  <Label layoutX="122.0" layoutY="14.0" text="MENU">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="374.0" layoutY="14.0" text="İçerik Dökümü">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="285.0" layoutY="44.0" prefHeight="30.0" prefWidth="128.0" text="Menu Tarihi :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="285.0" layoutY="130.0" prefHeight="30.0" prefWidth="128.0" text="Aylık Maliyet :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="285.0" layoutY="87.0" prefHeight="30.0" prefWidth="128.0" text="Menü Fiyatı :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="createmenuBtn" layoutX="283.0" layoutY="277.0" mnemonicParsing="false" onAction="#menuAdd" prefHeight="25.0" prefWidth="110.0" text="Menü Oluştur" />
+                  <Button fx:id="removemenuBtn" layoutX="438.0" layoutY="277.0" mnemonicParsing="false" onAction="#menuRemove" prefHeight="25.0" prefWidth="110.0" text="Menü Kaldır" />
+                  <Label fx:id="datelbl" layoutX="408.0" layoutY="46.0" prefHeight="26.0" prefWidth="174.0" text="00/00/0000">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="menupricelbl" layoutX="408.0" layoutY="89.0" prefHeight="26.0" prefWidth="174.0" text="00.00 TL">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalpricelbl" layoutX="417.0" layoutY="132.0" prefHeight="26.0" prefWidth="174.0" text="00.00 TL">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="datetxt" layoutX="279.0" layoutY="204.0" promptText="GG/AA/YYYY Tarih" />
+                  <ComboBox fx:id="combobox" layoutX="436.0" layoutY="204.0" onAction="#showMenu" prefWidth="150.0" promptText="Menü Zamanı" />
+                  <TextField fx:id="kisitxt" layoutX="279.0" layoutY="167.0" promptText="Kişi Sayısı" />
+                  <Button fx:id="kisiEkleBtn" layoutX="436.0" layoutY="167.0" mnemonicParsing="false" onAction="#kisiEkle" prefHeight="25.0" prefWidth="149.0" text="Kişileri Ekle" />
+                  <Button fx:id="haftalıkmenuBtn" layoutX="339.0" layoutY="241.0" mnemonicParsing="false" onAction="#addWeekMenu" prefHeight="25.0" prefWidth="149.0" text="1 Haftalık Menü" />
+               </children>
+            </Pane>
+            <Pane layoutX="-3.0" layoutY="303.0" prefHeight="324.0" prefWidth="593.0">
+               <children>
+                  <ListView fx:id="menufoodlist" layoutX="35.0" layoutY="44.0" onMousePressed="#showInfo" prefHeight="245.0" prefWidth="231.0" />
+                  <Label layoutX="71.0" layoutY="14.0" text="MENU YEMEKLERİ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="374.0" layoutY="14.0" text="İçerik Dökümü">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="283.0" layoutY="66.0" prefHeight="30.0" prefWidth="128.0" text="Yemek Adı :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="283.0" layoutY="179.0" prefHeight="30.0" prefWidth="128.0" text="Yemek Sayısı :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="283.0" layoutY="122.0" prefHeight="30.0" prefWidth="128.0" text="Yemek Fiyatı :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addfoodtomenuBtn" layoutX="276.0" layoutY="249.0" mnemonicParsing="false" onAction="#addFoodToMenu" prefHeight="25.0" prefWidth="135.0" text="Menüye Yemek Ekle" />
+                  <Button fx:id="removefoodfrommenuBtn" layoutX="422.0" layoutY="249.0" mnemonicParsing="false" onAction="#removeFromMenu" prefHeight="25.0" prefWidth="149.0" text="Menüden Yemek Kaldır" />
+                  <Label fx:id="foodnamelbl" layoutX="397.0" layoutY="68.0" prefHeight="26.0" prefWidth="174.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="foodpricelbl" layoutX="410.0" layoutY="124.0" prefHeight="26.0" prefWidth="174.0" text="00.00 TL">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="foodcountlbl" layoutX="415.0" layoutY="181.0" prefHeight="26.0" prefWidth="174.0" text="0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="338.0">
+         <children>
+            <TableView fx:id="foodlist" layoutX="15.0" layoutY="56.0" prefHeight="271.0" prefWidth="366.0">
+              <columns>
+                <TableColumn fx:id="yemekcol" prefWidth="230.0" text="Yemek" />
+                <TableColumn fx:id="fiyatcol" minWidth="0.0" prefWidth="135.0" text="Fiyat" />
+              </columns>
+            </TableView>
+            <Label layoutX="107.0" layoutY="14.0" text="Yemek Ekleme Kısmı">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="addbutton" layoutX="248.0" layoutY="364.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="110.0" text="Yemek Ekle" />
+            <Button fx:id="removebutton" layoutX="248.0" layoutY="410.0" mnemonicParsing="false" onAction="#remove" prefHeight="25.0" prefWidth="110.0" text="Yemek Çıkar" />
+            <TextField fx:id="foodtxt" layoutX="15.0" layoutY="364.0" prefHeight="25.0" prefWidth="208.0" promptText="Yemek Adı" />
+            <TextField fx:id="pricetxt" layoutX="15.0" layoutY="410.0" prefHeight="25.0" prefWidth="208.0" promptText="Yemek Fiyatı" />
+            <Label fx:id="statuslbl" layoutX="15.0" layoutY="461.0" text="İşlem Bekleniyor .." textFill="#ee1111">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="14.0" layoutY="510.0" prefWidth="353.0" text="Yemeği menüye aktarmak için yemek ekleme tablosundan seçip Menüye Yemek Ekle butonuna tıklayın." textAlignment="CENTER" textFill="#ee1111" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
